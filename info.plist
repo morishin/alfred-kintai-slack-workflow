@@ -173,6 +173,7 @@ if [ $(echo $res | grep '"ok":true') ]; then
     echo "✅ Succeeded in posting {query}";
 else
     echo "❌ Failed to post {query}";
+    echo $res &gt;&amp;2
 fi</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
