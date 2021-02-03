@@ -169,7 +169,7 @@
 	echo '❌ $SLACK_TOKEN and $SLACK_CHANNEL are required.'
 fi
 res=$(curl -s -XPOST -d "token=$SLACK_TOKEN" -d "channel=$SLACK_CHANNEL" -d "text={query}" -d 'as_user=true' 'https://slack.com/api/chat.postMessage')
-if [ $(echo $res | grep '"ok":true') ]; then
+if echo $res | grep -q '"ok":true'; then
     echo "✅ Succeeded in posting {query}";
 else
     echo "❌ Failed to post {query}";
